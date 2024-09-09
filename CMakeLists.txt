@@ -103,8 +103,7 @@ if(CPR_ENABLE_CPPCHECK)
     include(cmake/cppcheck.cmake)
 endif()
 
-if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
-else()
+if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME AND NOT "${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Werror")
 endif()
 
